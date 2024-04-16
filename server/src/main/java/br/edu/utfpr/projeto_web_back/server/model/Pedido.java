@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "PEDIDO")
@@ -27,4 +28,7 @@ public class Pedido {
 
     @ManyToOne
     private Usuario usuario;
+
+    @OneToMany
+    private List<ItensPedido> itensPedido;
 }

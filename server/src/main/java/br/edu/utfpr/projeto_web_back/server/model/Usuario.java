@@ -34,7 +34,5 @@ public class Usuario {
     @Size(min = 6)
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$", message = "Senha deve conter ao menos uma letra maiúscula, minúscula e um número")
     private String senha;
-
-
 }
 

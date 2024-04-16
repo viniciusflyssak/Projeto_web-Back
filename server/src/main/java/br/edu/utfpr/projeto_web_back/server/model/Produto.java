@@ -24,6 +24,8 @@ public class Produto {
 
     private BigDecimal preco;
 
+    private String imagem; //A princípio, irá salvar apenas a url da imagem.
+
     @ManyToOne
     private Categoria categoria;
 }
