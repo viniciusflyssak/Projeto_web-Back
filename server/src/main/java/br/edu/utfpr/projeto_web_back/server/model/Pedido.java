@@ -26,6 +26,9 @@ public class Pedido {
     @NotNull
     private LocalDate data;
 
+    @NotNull
+    private int formaPagamento;
+
     @ManyToOne
     private Usuario usuario;
 
