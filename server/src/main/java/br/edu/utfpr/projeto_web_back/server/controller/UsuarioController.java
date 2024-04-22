@@ -1,37 +1,28 @@
 package br.edu.utfpr.projeto_web_back.server.controller;
 
-import br.edu.utfpr.projeto_web_back.server.dto.CategoriaDto;
-import br.edu.utfpr.projeto_web_back.server.dto.UsuarioDto;
-import br.edu.utfpr.projeto_web_back.server.model.Categoria;
 import br.edu.utfpr.projeto_web_back.server.model.Usuario;
-import br.edu.utfpr.projeto_web_back.server.service.ICategoriaService;
-import br.edu.utfpr.projeto_web_back.server.service.ICrudService;
-import br.edu.utfpr.projeto_web_back.server.service.IUsuarioService;
-import org.modelmapper.ModelMapper;
+import br.edu.utfpr.projeto_web_back.server.service.UsuarioService;
+import br.edu.utfpr.projeto_web_back.server.shared.RespostaGenerica;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("usuarios")
-public class UsuarioController extends CrudController<Usuario, UsuarioDto, Long>{
+public class UsuarioController{
 
-    private final IUsuarioService service;
-    private final ModelMapper modelMapper;
+    private final UsuarioService usuarioService;
 
-    public UsuarioController(IUsuarioService service, ModelMapper modelMapper) {
-            super(Usuario.class, UsuarioDto.class);
-            this.service = service;
-            this.modelMapper = modelMapper;
-        }
+    public UsuarioController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
 
-        @Override
-        protected ICrudService<Usuario, Long> getService() {
-            return service;
-        }
-
-        @Override
-        protected ModelMapper getModelMapper() {
-            return modelMapper;
-        }
+    @PostMapping
+    public RespostaGenerica createUser(@Valid @RequestBody Usuario usuario) {
+        usuarioService.salvar(usuario);
+        return RespostaGenerica.builder().mensagem("Usuário salvo!.").build();
+    }
 
 }
