@@ -15,10 +15,13 @@ import java.math.BigDecimal;
 public class ItensPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPedido;
+    private Long idItensPedido;
 
     private BigDecimal preco;
 
     @ManyToOne
     private Produto produto;
+
+    @ManyToOne
+    private Pedido pedido;
 }

@@ -1,5 +1,6 @@
 package br.edu.utfpr.projeto_web_back.server.model;
 
+import br.edu.utfpr.projeto_web_back.server.annotation.UsernameUnico;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -28,6 +29,7 @@ public class Usuario implements UserDetails {
     @NotNull
     private String nome;
 
+    @UsernameUnico
     @NotNull
     private String username;
 

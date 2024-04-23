@@ -32,6 +32,6 @@ public class Pedido {
     @ManyToOne
     private Usuario usuario;
 
-    @OneToMany
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<ItensPedido> itensPedido;
 }
