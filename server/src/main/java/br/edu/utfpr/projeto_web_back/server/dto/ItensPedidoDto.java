@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 @Data
 public class ItensPedidoDto {
-    private Long idPedido;
+    private Long idItensPedido;
 
     private BigDecimal preco;
 
