@@ -32,6 +32,7 @@ public class Pedido {
     @ManyToOne
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    @OneToMany(cascade=CascadeType.PERSIST)
+    @JoinColumn(name="PEDIDO_ID")
     private List<ItensPedido> itensPedido;
 }
