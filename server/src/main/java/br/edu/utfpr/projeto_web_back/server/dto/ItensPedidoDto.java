@@ -15,4 +15,6 @@ public class ItensPedidoDto {
     private BigDecimal preco;
 
     private Produto produto;
+
+    private Long qtde;
 }

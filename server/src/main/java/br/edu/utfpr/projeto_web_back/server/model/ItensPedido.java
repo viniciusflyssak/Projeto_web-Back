@@ -19,6 +19,8 @@ public class ItensPedido {
 
     private BigDecimal preco;
 
+    private Long qtde;
+
     @ManyToOne
     private Produto produto;
 
