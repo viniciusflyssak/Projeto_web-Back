@@ -1,6 +1,8 @@
 package br.edu.utfpr.projeto_web_back.server.service.Impl;
 
 import br.edu.utfpr.projeto_web_back.server.service.ICrudService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.io.Serializable;
@@ -33,5 +35,9 @@ public abstract class CrudServiceImpl<T, ID extends Serializable> implements ICr
     @Override
     public void delete(ID id) {
         getRepository().deleteById(id); //Implementação efetiva do método que deleta o registro pelo id;
+    }
+
+    public Page<T> findAll(Pageable pageable) {
+        return getRepository().findAll(pageable);
     }
 }

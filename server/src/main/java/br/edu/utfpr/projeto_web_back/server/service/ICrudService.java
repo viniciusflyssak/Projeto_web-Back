@@ -1,5 +1,6 @@
 package br.edu.utfpr.projeto_web_back.server.service;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
@@ -14,4 +15,6 @@ public interface ICrudService<T, ID extends Serializable> {
     T findOne(ID id); //Realiza a busca do registro por id;
 
     void delete(ID id); //Deleta um registro correspondente a id passada;
+
+    Page<T> findAll(Pageable pageable);
 }
