@@ -1,5 +1,6 @@
 package br.edu.utfpr.projeto_web_back.server.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,5 +26,6 @@ public class ItensPedido {
     private Produto produto;
 
     @ManyToOne
+    @JsonIgnore
     private Pedido pedido;
 }

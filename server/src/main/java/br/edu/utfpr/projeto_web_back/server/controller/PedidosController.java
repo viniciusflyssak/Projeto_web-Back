@@ -43,7 +43,7 @@ public class PedidosController extends CrudController<Pedido, PedidoDto, Long>{
     }
 
     @GetMapping("/PedidosPorUsuario")
-    public ResponseEntity<List<PedidoDto>> findProdutosByCategoria(@RequestParam("usuario") Long usuarioId) {
+    public ResponseEntity<List<PedidoDto>> findProdutosByUsuario(@RequestParam("usuario") Long usuarioId) {
         Usuario usuario = new Usuario();
         usuario.setId(usuarioId);
         List<Pedido> pedidos = service.findPedidosByUsuario(usuario);
